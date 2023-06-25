@@ -1,0 +1,890 @@
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roadmap dedicado aos estudos de CSS">
+    <meta name="author" content="JoaoAlisonTI">
+<title>Roadmap de Estudos - CSS</title>
+
+<style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="32382fbe-4ad1-4138-9583-48f65534cebc" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1589566983471-a0e73071c282?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🏃‍♂️</span></div><h1 class="page-title">Roadmap de Estudos - CSS</h1><p class="page-description"></p></header><div class="page-body"><h2 id="485dccbe-3ebd-401e-95cb-cabe0e6e137f" class="">🎯 Objetivo Principal</h2><p id="b94b0b90-919d-4137-ad1e-9ba075ec0b49" class="">Dominar as técnicas de estilização e design de páginas web utilizando CSS.</p><h2 id="210cc6bc-48b8-4157-b9c7-34c76a4e2491" class="">👀 Visão Geral</h2><h3 id="0fee55a7-b6a9-48be-a540-74bf9b647826" class=""><ul><li><a href="#1">Etapa 1: Fundamentos do CSS</a></li>
+<li><a href="#2">Etapa 2: Layout Responsivo</a></li>
+<li><a href="#3">Etapa 3: Estilização Avançada </a></li>
+<li><a href="#4">Etapa 4: Frameworks e Prática</a></li>
+<li><a href="#5">Recursos e Materiais</a></li>
+<li><a href="#6">Calendário</a></li>
+<li><a href="#7">Progresso</a></li>
+<li><a href="#8">Notas e Observações</a></li></ul></h3>
+<h2 id="55d8d137-c364-4181-98ec-fceaa0a1ce89" class="">Etapa 0: O que é CSS?</h2><p id="0a667bf6-cb58-4f9b-85f3-336694f2d2f7" class="">CSS significa &quot;Cascading Style Sheets&quot; (Folhas de Estilo em Cascata) e é uma linguagem de marcação utilizada para estilizar páginas da web. CSS permite que você controle a aparência e o layout de elementos HTML, incluindo fontes, cores, margens, bordas e muito mais. Ao separar a apresentação do conteúdo, CSS permite que você crie páginas da web mais bonitas e com melhor usabilidade.</p><h3 id="1" class="">Etapa 1: Fundamentos do CSS</h3><p id="94c22d01-7724-4daf-94d8-6fe6f13106c3" class="">Nesta etapa, você vai aprender os conceitos básicos do CSS e as formas de aplicar estilos a elementos HTML.</p><p id="1f1fccf4-ab6a-4f2f-bd45-eadb2213213f" class="">
+</p><ul id="f4726b80-73d1-4eb2-86f7-22da7794ea3b" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Sintaxe básica do CSS</strong></span><div class="indented"></div></li></ul><p id="d7092b2b-2938-4ee8-b9d4-8778b54162fb" class="">A sintaxe básica do CSS consiste em um seletor que especifica o elemento HTML que será estilizado e um conjunto de propriedades de estilo que definem como o elemento deve ser estilizado. Por exemplo:</p><pre id="dad13b12-f078-4fdf-9663-e24dca991ccc" class="code code-wrap"><code>seletor {
+  propriedade: valor;
+}
+</code></pre><p id="78cfaabe-e19a-4420-9192-6a5997681d97" class="">O seletor pode ser um elemento HTML, uma classe ou um ID. As propriedades de estilo incluem cor, fonte, margem e muito mais. O valor pode ser uma cor, uma fonte ou um número que representa uma medida.</p><p id="1ff1477d-14e3-400e-855f-a09539fd43f6" class="">
+</p><ul id="4f418541-98aa-4497-86eb-d6cf2a8432cc" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Seletor de elementos, classes e IDs</strong></span><div class="indented"></div></li></ul><p id="e271de68-d79a-477b-b89d-0cd9c060bacf" class="">Existem sete tipos de seletores de elementos CSS:</p><ul id="3a511148-5ff5-49d8-b960-7c15aa559912" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor universal:</strong> seleciona todos os elementos. Exemplo: <code>* {color: red;}</code></li></ul><ul id="0203dc93-be1b-4308-beed-6cb66b9b8b38" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor de tipo:</strong> seleciona todos os elementos de um determinado tipo. Exemplo: <code>p {color: blue;}</code></li></ul><ul id="96d680e6-92e4-43ee-b1db-203e8130e4d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor de classe:</strong> seleciona todos os elementos que possuem uma determinada classe. Exemplo: <code>.destaque {color: green;}</code></li></ul><ul id="cb0fb267-cc2c-416c-a294-4f8f868cc5f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor de ID:</strong> seleciona um elemento com um ID específico. Exemplo: <code>#cabecalho {color: purple;}</code></li></ul><ul id="d913c842-6877-47f7-bebf-c18adb56474d" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor descendente:</strong> seleciona elementos que são descendentes de outro elemento. Exemplo: <code>div p {color: orange;}</code></li></ul><ul id="08d327de-e988-4cbe-b272-e671d0cef69d" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor de filho:</strong> seleciona elementos que são filhos diretos de outro elemento. Exemplo: <code>div &gt; p {color: pink;}</code></li></ul><ul id="20ca3476-8adb-409d-b6ef-ae954d07035e" class="bulleted-list"><li style="list-style-type:disc"><strong>Seletor de atributo:</strong> seleciona elementos com um determinado atributo. Exemplo: <code>a[href] {color: brown;}</code></li></ul><p id="0f9e1fdf-f405-4c52-a239-9c799c1bc220" class="">Lembrando que é possível combinar seletores para criar seletores mais específicos. Por exemplo, <code>p.destaque</code> seleciona todos os elementos <code>&lt;p&gt;</code> que possuem a classe &quot;destaque&quot;.</p><p id="432877f1-0d25-430e-9fe1-58e40bedaf66" class="">
+</p><ul id="d309e866-0bda-44dc-af91-f833992801d3" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Propriedades de estilo (cor, fonte, margem, etc.)</strong></span><div class="indented"></div></li></ul><p id="fa23fd8c-ec65-4310-ac77-50dbc608fa04" class="">As propriedades de estilo são usadas para definir a aparência dos elementos HTML. Algumas das propriedades de estilo mais comuns incluem:</p><ul id="c27a0358-3cf2-4490-bb5e-a4cea8dcd2e6" class="bulleted-list"><li style="list-style-type:disc"><code>color</code>: define a cor do texto</li></ul><ul id="d149c4f3-b428-48f6-8af9-93a823f3d5e5" class="bulleted-list"><li style="list-style-type:disc"><code>font-family</code>: define a fonte do texto</li></ul><ul id="bb5b8c83-23b8-49e7-bb9f-24620dea82b1" class="bulleted-list"><li style="list-style-type:disc"><code>font-size</code>: define o tamanho do texto</li></ul><ul id="83bc0689-542e-4e8c-80cc-14bd9e917782" class="bulleted-list"><li style="list-style-type:disc"><code>background-color</code>: define a cor de fundo do elemento</li></ul><ul id="1ae07e42-d949-4e50-9c06-d386af1923c3" class="bulleted-list"><li style="list-style-type:disc"><code>border</code>: define a borda do elemento</li></ul><ul id="0aa270aa-aca2-400a-8db0-4926dc6671c0" class="bulleted-list"><li style="list-style-type:disc"><code>margin</code>: define a margem externa do elemento</li></ul><ul id="e96d6d6e-af7c-4960-9e51-1c918b39ecd3" class="bulleted-list"><li style="list-style-type:disc"><code>padding</code>: define o preenchimento interno do elemento</li></ul><p id="d26fcceb-2f26-4145-8cb3-7c17f5beb587" class="">Exemplo de código:</p><pre id="211bed91-a038-4e2a-bab8-e9962af4924a" class="code code-wrap"><code>p {
+  color: red;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 5px;
+}
+</code></pre><p id="dd48d47f-4d83-4456-9684-9c9c05a5185e" class="">
+</p><ul id="0e4f74a2-e507-4093-8fef-f77ef1b5b840" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Box model (margem, borda, preenchimento)</strong></span><div class="indented"></div></li></ul><p id="223a29e2-296e-4881-b3c9-37d0cea83ede" class="">Box model é um conceito importante em CSS que define como os elementos HTML são renderizados na página. Cada elemento é visto como uma caixa, com conteúdo, preenchimento, borda e margem.</p><p id="0bddf735-c1ba-4132-82f1-12cd4c1c4429" class="">O conteúdo é a parte interna da caixa, que pode ser um texto, uma imagem ou qualquer outro elemento HTML. O preenchimento é a área entre o conteúdo e a borda, que pode ser usada para criar espaço em branco dentro da caixa. A borda é a linha que circunda a caixa, que pode ser sólida, pontilhada ou qualquer outro estilo de linha. Finalmente, a margem é a área externa à caixa, que pode ser usada para criar espaço entre as caixas adjacentes.</p><p id="69abe895-f396-41a7-85f3-27ad8cac6305" class="">Aqui está um exemplo de código que demonstra o box model:</p><pre id="5a0262b3-15c6-46b4-873b-0a58991a6837" class="code code-wrap"><code>&lt;div style=&quot;width: 200px; height: 100px; padding: 20px; border: 2px solid black; margin: 10px;&quot;&gt;
+  &lt;p&gt;Este é um exemplo de box model.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p id="bcfe787b-fd3e-4eae-98c3-24183682c51d" class="">Neste exemplo, criamos uma caixa retangular usando a tag <code>&lt;div&gt;</code>. Definimos a largura e a altura da caixa como 200px e 100px, respectivamente. Adicionamos preenchimento de 20px, borda de 2px sólida e margem de 10px. O texto &quot;Este é um exemplo de box model.&quot; é o conteúdo da caixa.</p><h3 id="2" class="">Etapa 2: Layout Responsivo</h3><p id="bbb35514-c1a3-4096-bb6d-fbb8cfe23112" class="">Nesta etapa, você vai explorar técnicas de layout responsivo para criar páginas que se adaptam a diferentes dispositivos e tamanhos de tela.</p><p id="8eedda54-2c4e-4e33-8086-5253f0422d76" class="">
+</p><ul id="971580df-417f-4d1d-ab00-6b305f592bc7" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Media queries</strong></span><div class="indented"></div></li></ul><p id="1d79309b-bd20-44ca-96f6-83d898038a3e" class="">Media queries são uma técnica de layout responsivo que permite que as páginas da web se adaptem a diferentes dispositivos e tamanhos de tela. Com media queries, é possível aplicar estilos diferentes com base nas características do dispositivo, como largura da tela, orientação, resolução e muito mais.</p><p id="893d7c64-629b-4e70-a022-63579e6d584a" class="">Aqui está um exemplo de código que usa media queries para alterar a cor do texto com base no tamanho da tela:</p><pre id="ea8fd669-08ec-476f-90a3-2b4deb931f78" class="code code-wrap"><code>/* Estilos padrão para texto */
+p {
+  color: black;
+}
+
+/* Estilos para telas menores que 600px */
+@media (max-width: 600px) {
+  p {
+    color: red;
+  }
+}
+</code></pre><p id="419f34d9-7130-4b73-9512-3f3354ce22d2" class="">Neste exemplo, definimos os estilos padrão para o elemento <code>&lt;p&gt;</code> com a cor preta. Em seguida, adicionamos uma media query que aplica estilos diferentes a telas menores que 600px, definindo a cor do texto como vermelha. Essa técnica pode ser usada para criar layouts responsivos que se adaptam a uma ampla variedade de dispositivos e tamanhos de tela.</p><p id="0085f206-d620-45a7-86ae-51f0c2b021d9" class="">
+</p><ul id="da80de47-9fe1-489b-a8d4-6812f4b4b97b" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Grid layout</strong></span><div class="indented"></div></li></ul><p id="028c26c3-8880-4c65-92d4-9e4e4e354c7e" class=""><strong>Layout de grade (Grid)</strong> é uma técnica de layout CSS que permite organizar o conteúdo em uma grade flexível e responsiva. É uma maneira poderosa e fácil de criar layouts complexos, como grades de produtos, galerias de imagens e layouts de página de várias colunas.</p><p id="d5534d4e-4fa8-4101-953e-641cf40c264a" class="">Para criar um layout de grade, você precisa definir um recipiente de grade (grid container) e os itens da grade (grid items). Aqui está um exemplo de código que define um layout de grade simples:</p><pre id="dc93460c-a3cc-4e4b-904f-ce874198e363" class="code code-wrap"><code>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.item {
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+</code></pre><p id="f56aeb93-5b0d-49ae-9ef2-9e9bd60251ae" class="">Neste exemplo, definimos uma grade com três colunas usando a propriedade <code>grid-template-columns</code>. A largura de cada coluna é definida como 1fr, o que significa que cada coluna deve ter a mesma largura. A propriedade <code>grid-gap</code> define o espaçamento entre os itens da grade.</p><p id="8a327f80-02f8-4f79-a924-35e61365b8bd" class="">Em seguida, definimos o estilo para os itens da grade com a classe <code>.item</code>. Definimos a cor de fundo como cinza claro e adicionamos um preenchimento de 20px. O texto dentro dos itens é centralizado com a propriedade <code>text-align</code>.</p><p id="7ed07654-91f2-4c54-af63-9e3e3794a2e1" class="">Para adicionar itens à grade, basta criar elementos HTML com a classe <code>.item</code>. Aqui está um exemplo de código que adiciona quatro itens à grade:</p><pre id="c3cb2d65-9eed-424c-93b4-ae58929b2ad9" class="code code-wrap"><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 1&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 3&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p id="ef0f61a9-9375-40e8-a042-29a7ae1502b3" class="">Neste exemplo, criamos um recipiente de grade com a classe <code>.container</code>. Em seguida, adicionamos quatro itens à grade com a classe <code>.item</code>. Os itens são organizados automaticamente em uma grade de três colunas.</p><p id="09689b00-6914-49d3-840d-dcd58b2596b2" class="">Você pode personalizar ainda mais o layout de grade adicionando mais propriedades CSS, como <code>grid-template-rows</code>, <code>grid-auto-columns</code>, <code>grid-auto-rows</code> e muito mais. A documentação oficial do CSS tem mais informações sobre como usar o layout de grade.</p><p id="8ee1380d-ee16-4cdf-b2f4-b481e8c67b7b" class="">
+</p><ul id="3d78333e-6375-4678-9d64-f6990fbe2b12" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Flexbox</strong></span><div class="indented"></div></li></ul><p id="573c968a-b9d4-4a39-a69b-f3bcd70a81ee" class="">O Flexbox CSS é um módulo do CSS3 que foi criado para facilitar a criação de layouts responsivos e flexíveis. Ele oferece uma maneira fácil de organizar e alinhar elementos em uma página, independentemente do tamanho da tela ou do dispositivo.</p><p id="d6e5a12f-9e7c-4438-8565-ad69e80d8ad2" class="">O modelo de layout flexbox funciona através da definição de um container (recipiente) e seus elementos filhos (itens). O container é definido através da propriedade <code>display: flex</code>, que informa ao navegador que ele deve usar o modelo de layout flexbox. Os elementos filhos dentro do recipiente são chamados de itens flexíveis (flex items).</p><p id="5f78d3bb-c051-4531-b0dd-8b841e534003" class="">Aqui estão algumas propriedades importantes do Flexbox CSS que podem ser usadas para personalizar o layout:</p><ul id="c6b67e00-091b-478a-8ec7-3ebd3e257363" class="bulleted-list"><li style="list-style-type:disc"><code>flex-direction</code>: define a direção do fluxo dos itens flexíveis dentro do recipiente (pode ser row, row-reverse, column, column-reverse).</li></ul><ul id="dd4fbab5-7688-4651-bfd9-7395461cc04d" class="bulleted-list"><li style="list-style-type:disc"><code>justify-content</code>: define o alinhamento horizontal dos itens flexíveis dentro do recipiente (pode ser flex-start, flex-end, center, space-between, space-around).</li></ul><ul id="f0515400-fac4-4753-ab3a-5aa51d7c12f8" class="bulleted-list"><li style="list-style-type:disc"><code>align-items</code>: define o alinhamento vertical dos itens flexíveis dentro do recipiente (pode ser flex-start, flex-end, center, baseline, stretch).</li></ul><ul id="3a356f78-cbfb-487d-89f0-14bbda7aa2d0" class="bulleted-list"><li style="list-style-type:disc"><code>flex-wrap</code>: define se os itens flexíveis devem ser quebrados em várias linhas ou não (pode ser nowrap, wrap, wrap-reverse).</li></ul><ul id="5e9f1c53-eeba-4e7f-a9df-8c86a86ca75a" class="bulleted-list"><li style="list-style-type:disc"><code>flex-basis</code>: define o tamanho inicial de um item flexível antes de qualquer espaço adicional ser distribuído (pode ser definido em pixels, ems, porcentagem ou auto).</li></ul><ul id="f3764fe3-f163-44f5-9d4c-c91735795682" class="bulleted-list"><li style="list-style-type:disc"><code>flex-grow</code>: define a proporção em que os itens flexíveis devem crescer em relação uns aos outros (pode ser um valor numérico).</li></ul><p id="c513292e-b787-4371-883f-815ab4243262" class="">Aqui está um exemplo de código que usa essas propriedades para criar um layout flex com três itens:</p><pre id="7c529611-fa38-49d4-ab61-b63f4b8d3ef0" class="code code-wrap"><code>.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.item {
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+  flex-basis: 30%;
+  flex-grow: 1;
+}
+
+</code></pre><p id="9feb63fb-3848-4260-8c40-7d72523e7855" class="">Neste exemplo, definimos um recipiente flex com a classe <code>.container</code>. Definimos a propriedade <code>display</code> como <code>flex</code>, o que informa ao navegador que este é um recipiente flex. Adicionamos a propriedade <code>flex-direction</code> com o valor <code>row</code>, o que define que os itens flexíveis devem ser organizados em uma única linha. Adicionamos a propriedade <code>justify-content</code> com o valor <code>space-between</code>, o que adiciona espaço igual entre os itens flexíveis. Adicionamos a propriedade <code>align-items</code> com o valor <code>center</code>, o que centraliza os itens verticalmente. Definimos a propriedade <code>flex-wrap</code> como <code>nowrap</code>, o que impede que os itens flexíveis sejam quebrados em linhas adicionais.</p><p id="d2ade0ae-f902-4019-aade-b56c196769e2" class="">Em seguida, definimos o estilo para os itens flexíveis com a classe <code>.item</code>. Definimos a cor de fundo como cinza claro e adicionamos um preenchimento de 20px. O texto dentro dos itens é centralizado com a propriedade <code>text-align</code>. Definimos a propriedade <code>flex-basis</code> como <code>30%</code>, o que define o tamanho inicial de cada item flexível como 30% da largura do recipiente. Definimos a propriedade <code>flex-grow</code> como <code>1</code>, o que significa que os itens flexíveis devem crescer em relação uns aos outros em proporção igual.</p><p id="d65d5d1d-882a-4a8e-92a7-090042eb1d13" class="">Para adicionar itens ao recipiente flex, basta criar elementos HTML com a classe <code>.item</code>. Aqui está um exemplo de código que adiciona três itens ao recipiente flex:</p><pre id="7a7e5d82-a8b5-4a7e-a814-1f04541f120b" class="code code-wrap"><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 1&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 2&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre><p id="a1d4dd85-0c02-4ded-941f-b586169b7e23" class="">Neste exemplo, criamos um recipiente flex com a classe <code>.container</code>. Em seguida, adicionamos três itens ao recipiente flex com a classe <code>.item</code>. Os itens são organizados automaticamente em uma única linha, com espaçamento igual entre eles.</p><p id="cad14850-c924-4020-997a-9f7ebab211ab" class="">O Flexbox CSS é uma ferramenta poderosa que pode ajudar a criar layouts complexos com facilidade. A documentação oficial do CSS tem mais informações sobre como usar o Flexbox CSS e suas propriedades.</p><p id="929487d2-d01c-47a1-9c70-a4c01f91479b" class="">
+</p><ul id="7e98d779-d705-4cd0-be49-227240b33a58" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Unidades de medida responsivas (rem, %, vw, vh)</strong></span><div class="indented"></div></li></ul><p id="a7bbf87f-7e90-4195-ab5e-ee97a944e2df" class="">As unidades de medidas responsivas são utilizadas para criar layouts que se adaptam a diferentes tamanhos de tela e dispositivos. A principal diferença em relação às unidades de medidas em pixels é que as unidades responsivas são relativas à largura ou altura da tela, enquanto as unidades em pixels são fixas e não mudam independentemente do tamanho da tela.</p><p id="5d17dad1-be54-4ec4-a4d7-b131323a547c" class="">Alguns exemplos de unidades de medidas responsivas incluem:</p><ul id="3b6b89fa-88ab-4688-b351-4cd54451f567" class="bulleted-list"><li style="list-style-type:disc"><strong>Rem (root em):</strong> É a unidade de medida relativa ao tamanho da fonte do elemento raiz (normalmente o elemento <code>html</code>). Por exemplo, se a fonte do elemento raiz for de 16 pixels, 1rem será igual a 16 pixels. Exemplo de código:</li></ul><pre id="ee43b9f5-675a-4d4f-99af-1bd2847394b0" class="code code-wrap"><code>p {
+  font-size: 1.5rem;
+}
+</code></pre><ul id="d6da963d-5454-48a5-8dcb-38a94ffc1df5" class="bulleted-list"><li style="list-style-type:disc"><strong>% (porcentagem):</strong> É a unidade de medida relativa à largura do elemento pai. Por exemplo, se um elemento filho tiver largura definida como 50%, ele terá metade da largura do elemento pai. Exemplo de código:</li></ul><pre id="8ca5e07e-422c-48b2-9b96-450f0032f01a" class="code code-wrap"><code>div {
+  width: 50%;
+}
+</code></pre><ul id="ead8bd8a-e3e9-4ee6-901c-2466eded3b09" class="bulleted-list"><li style="list-style-type:disc"><strong>VW (viewport width):</strong> É a unidade de medida relativa à largura da viewport (área visível da janela do navegador). Por exemplo, se a largura da viewport for de 1000 pixels, 1vw será igual a 10 pixels. Exemplo de código:</li></ul><pre id="a6762ba8-843b-4927-8a2c-9eaac61133c6" class="code code-wrap"><code>h1 {
+  font-size: 5vw;
+}
+</code></pre><ul id="a2551fa3-f5bf-42bf-aeba-59cc2c83662d" class="bulleted-list"><li style="list-style-type:disc"><strong>VH (viewport height):</strong> É a unidade de medida relativa à altura da viewport. Por exemplo, se a altura da viewport for de 500 pixels, 1vh será igual a 5 pixels. Exemplo de código:</li></ul><pre id="8b3c2318-c502-4351-bb52-3483f4ed260d" class="code code-wrap"><code>header {
+  height: 50vh;
+}
+</code></pre><p id="7ec517e8-2de1-407f-aca6-c128fade5228" class="">Essas unidades de medidas são particularmente úteis para criar layouts responsivos que se adaptam a diferentes dispositivos e tamanhos de tela. É importante lembrar que o uso de unidades de medidas responsivas pode ser mais complexo do que o uso de unidades em pixels, pois envolve cálculos e proporções em relação aos elementos pai e viewport. A documentação oficial do CSS tem mais informações sobre como usar unidades de medidas responsivas em seus projetos.</p><h3 id="3" class="">Etapa 3: Estilização Avançada</h3><p id="0bed372e-3cf1-478e-a208-2b2d9ed9ceab" class="">Nesta etapa, você vai aprender técnicas avançadas de estilização e aprimorar a aparência das páginas web.</p><p id="7e95b5ba-c1ea-4991-857f-d44ba9f0db83" class="">
+</p><ul id="f9b1aa58-3f4d-4345-bf38-08a61f001d64" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Animações e transições</strong></span><div class="indented"></div></li></ul><p id="7f5b8ff9-080c-4e55-9f1a-a39c12492523" class="">As animações e transições são recursos avançados de estilização no CSS que permitem criar efeitos visuais interessantes em elementos HTML. As animações permitem criar movimentos fluidos e contínuos em um elemento, enquanto as transições permitem animar mudanças de estilo em um elemento quando ocorrem eventos, como a passagem do mouse.</p><p id="f402d7e5-e5df-4d66-8a8c-42357add176b" class="">Aqui está um exemplo de código que usa animações para criar um efeito de pulsação em um elemento:</p><pre id="ea81f386-c56c-4fcf-a968-3cb16711278a" class="code code-wrap"><code>.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+</code></pre><p id="b6fbc544-d513-49d1-9df0-e9534c2ffb2e" class="">Neste exemplo, adicionamos a classe <code>.pulse</code> a um elemento HTML para aplicar a animação. Em seguida, definimos a animação usando a propriedade <code>animation-name</code> e o nome da animação (neste caso, <code>pulse</code>). Definimos a duração da animação usando a propriedade <code>animation-duration</code> (1 segundo) e o número de vezes que a animação deve ser repetida usando a propriedade <code>animation-iteration-count</code> (infinito). Também definimos a função de tempo da animação usando a propriedade <code>animation-timing-function</code> (ease-in-out), que define como a animação deve acelerar e desacelerar.</p><p id="242f7acb-f34b-4027-af3f-6cb903e68b34" class="">Em seguida, definimos a animação real usando a regra <code>@keyframes</code>. Começamos definindo a posição inicial da animação com <code>0%</code>, que define o estado do elemento antes da animação começar. Em seguida, definimos uma posição intermediária da animação com <code>50%</code>, que define como o elemento deve ser animado na metade da duração da animação. Finalmente, definimos a posição final da animação com <code>100%</code>, que define o estado final do elemento após a animação ser concluída. Em cada posição, definimos a transformação que deve ser aplicada ao elemento usando a propriedade <code>transform</code>. Neste caso, definimos uma transformação de escala que faz com que o elemento oscile entre 100% e 110% do tamanho original.</p><p id="262b4f4f-8157-4c79-be08-b6fdd697c34a" class="">Aqui está um exemplo de código que usa transições para animar uma mudança de cor em um elemento quando o mouse passa sobre ele:</p><pre id="980968e2-0d26-4544-8f08-bdfaed90ff38" class="code code-wrap"><code>.button {
+  background-color: blue;
+  color: white;
+  transition-property: background-color, color;
+  transition-duration: 0.5s;
+}
+
+.button:hover {
+  background-color: green;
+  color: black;
+}
+
+</code></pre><p id="cf1eb3f6-a50c-4c7c-b952-897312a4760d" class="">Neste exemplo, adicionamos a classe <code>.button</code> a um elemento HTML para aplicar a transição. Em seguida, definimos as propriedades de estilo padrão para o elemento, incluindo a cor de fundo azul e a cor do texto branco. Em seguida, definimos as propriedades de transição usando a propriedade <code>transition-property</code>, que define quais propriedades de estilo devem ser animadas (neste caso, <code>background-color</code> e <code>color</code>), e a propriedade <code>transition-duration</code>, que define a duração da transição (0,5 segundos).</p><p id="d42a19fc-3552-4c58-be5c-74b6a0c7168f" class="">Finalmente, definimos as propriedades de estilo que devem ser aplicadas quando o mouse passa sobre o elemento usando a pseudoclasse <code>:hover</code>. Neste caso, definimos uma nova cor de fundo verde e uma nova cor de texto preta. Como as propriedades de estilo foram definidas como propriedades de transição, a transição animará suavemente a mudança de cor quando o mouse passar sobre o elemento.</p><p id="2dc606fe-a885-4a25-95a6-bda8404271f8" class="">Lembre-se de que as animações e transições podem ser personalizadas ainda mais usando outras propriedades CSS, como <code>animation-delay</code>, <code>animation-direction</code>, <code>animation-fill-mode</code>, <code>animation-play-state</code>, <code>transition-delay</code> e <code>transition-timing-function</code>. A documentação oficial do CSS tem mais informações sobre como usar esses recursos avançados de estilização em seus projetos.</p><p id="498660a5-12b9-4c61-b5f1-6e4a63af35cd" class="">
+</p><ul id="c97bdc13-47be-4365-b293-8225819515db" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Transformações e efeitos visuais</strong></span><div class="indented"></div></li></ul><p id="3d3b6f8d-c47f-438b-9ef2-ce739bddecb6" class="">As transformações CSS são uma técnica avançada de estilização que permitem alterar a posição, o tamanho, a rotação e outros aspectos de elementos HTML. Aqui estão alguns exemplos de transformações CSS:</p><ul id="f06108e8-1dac-4366-bbc5-340e189f7d4b" class="bulleted-list"><li style="list-style-type:disc"><strong>Translate:</strong> altera a posição de um elemento em relação à sua posição original. Exemplo de código:</li></ul><pre id="5adc8225-a9b6-4ed6-8443-b80b6586eabc" class="code code-wrap"><code>div {
+  transform: translate(50px, 50px);
+}
+</code></pre><p id="d4844356-a188-4797-b5ab-8febd4060781" class="">Neste exemplo, o elemento <code>&lt;div&gt;</code> será movido 50 pixels para a direita e 50 pixels para baixo em relação à sua posição original.</p><ul id="c0604c9d-b67b-4ceb-a0c8-65ca050b8c24" class="bulleted-list"><li style="list-style-type:disc"><strong>Scale:</strong> altera o tamanho de um elemento em relação ao seu tamanho original. Exemplo de código:</li></ul><pre id="de7619a8-4034-4d07-b4fd-6a79a21b3305" class="code code-wrap"><code>div {
+  transform: scale(2);
+}
+</code></pre><p id="91ce90c8-a373-4196-bdf5-b054a2c29c3c" class="">Neste exemplo, o elemento <code>&lt;div&gt;</code> será ampliado para o dobro do seu tamanho original.</p><ul id="4d6a1c87-f202-4624-bd54-75a4f9228b75" class="bulleted-list"><li style="list-style-type:disc"><strong>Rotate:</strong> gira um elemento em torno do seu próprio eixo. Exemplo de código:</li></ul><pre id="63e3eccb-3157-45ab-80a3-65023fea5fd2" class="code code-wrap"><code>div {
+  transform: rotate(45deg);
+}
+</code></pre><p id="7e47976d-dc7a-41f3-9338-28a28638915e" class="">Neste exemplo, o elemento <code>&lt;div&gt;</code> será girado em um ângulo de 45 graus em relação à sua posição original.</p><ul id="be8e1f3d-0f7d-440d-8e77-b89d5e2e4b30" class="bulleted-list"><li style="list-style-type:disc"><strong>Skew:</strong> inclina um elemento em um determinado ângulo. Exemplo de código:</li></ul><pre id="097dae50-536b-434b-b44e-ccd52d501c80" class="code code-wrap"><code>div {
+  transform: skew(30deg, 15deg);
+}
+</code></pre><p id="bae08031-e46b-4c35-8cd1-b2dfdab80069" class="">Neste exemplo, o elemento <code>&lt;div&gt;</code> será inclinado em um ângulo de 30 graus na horizontal e 15 graus na vertical.</p><ul id="492c69ba-bb67-4b84-b869-42f801c68ecf" class="bulleted-list"><li style="list-style-type:disc"><strong>Matrix:</strong> combina várias transformações em uma única transformação. Exemplo de código:</li></ul><pre id="6080f358-56dc-434b-b22a-ec11a5285e91" class="code code-wrap"><code>div {
+  transform: matrix(1, 0.5, -0.5, 1, 0, 0);
+}
+</code></pre><p id="6f215f87-11f1-4aa1-9b36-2066cf9375fe" class="">Neste exemplo, o elemento <code>&lt;div&gt;</code> será transformado usando uma matriz 2D personalizada.</p><p id="a5b57309-eb95-436d-b56c-fe3e896d52f0" class="">As transformações CSS são uma técnica avançada de estilização que podem ser usadas para criar efeitos visuais interessantes em elementos HTML. A documentação oficial do CSS tem mais informações sobre como usar transformações CSS em seus projetos.</p><p id="ca9e2a3f-3de2-4619-b0f4-886ac569719b" class="">
+</p><ul id="5495fa30-37eb-47cb-b09b-ec0b05bf1f15" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Estilização de formulários</strong></span><div class="indented"></div></li></ul><p id="be1385ba-e448-4215-b866-4604529f46b8" class="">A estilização de formulários CSS é uma técnica avançada de estilização que permite personalizar a aparência de elementos de formulário HTML, como botões, campos de texto, listas suspensas e muito mais. Aqui estão alguns exemplos de código que podem ser usados para estilizar formulários:</p><p id="b0afb1db-6c38-4025-bff4-b4767b763300" class=""><strong>Botões personalizados</strong></p><pre id="ecdd7532-21bd-4c7b-b9ee-a613439042d8" class="code code-wrap"><code>button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+</code></pre><p id="fc322921-23b3-4de4-9303-8dea3eb94b71" class="">Neste exemplo, definimos estilos para botões usando as propriedades <code>display</code>, <code>padding</code>, <code>background-color</code>, <code>color</code>, <code>border</code>, <code>border-radius</code>, <code>font-size</code> e <code>cursor</code>. O seletor <code>button</code> é usado para aplicar esses estilos a todos os botões HTML em uma página. Em seguida, adicionamos um estilo de hover que adiciona uma cor de fundo mais escura quando o cursor passa sobre o botão.</p><p id="7b85e2a8-f73d-466a-ba5b-69c38b57e601" class=""><strong>Campos de texto personalizados</strong></p><pre id="4e4e5a73-6cad-4670-b18b-ddfff5914628" class="code code-wrap"><code>input[type=&quot;text&quot;] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #3498db;
+}
+
+input[type=&quot;text&quot;]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2980b9;
+}
+
+</code></pre><p id="81ff5cbe-5714-492b-ab12-21230e965c8c" class="">Neste exemplo, definimos estilos para campos de texto usando as propriedades <code>display</code>, <code>width</code>, <code>padding</code>, <code>font-size</code>, <code>border</code>, <code>border-radius</code> e <code>box-shadow</code>. O seletor <code>input[type=&quot;text&quot;]</code> é usado para aplicar esses estilos a todos os campos de texto HTML em uma página. O estilo <code>box-shadow</code> é usado para criar um efeito de destaque quando o campo de texto recebe foco. O estilo <code>:focus</code> é usado para aplicar estilos quando o campo de texto está em foco.</p><p id="7fac91b4-50bc-49aa-9bb3-c600f42729a4" class=""><strong>Listas suspensas personalizadas</strong></p><pre id="8a1ec668-c3cf-4837-8c35-8d9ae6e17654" class="code code-wrap"><code>select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #3498db;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;&lt;http://www.w3.org/2000/svg&gt;&#x27; viewBox=&#x27;0 0 30 10&#x27;%3E%3Cpath d=&#x27;M0 0l15 10 15-10z&#x27;/%3E%3C/svg%3E&quot;);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2980b9;
+}
+
+</code></pre><p id="e0041423-895a-4853-8153-00f54c9f6317" class="">Neste exemplo, definimos estilos para listas suspensas usando as propriedades <code>display</code>, <code>width</code>, <code>padding</code>, <code>font-size</code>, <code>border</code>, <code>border-radius</code>, <code>box-shadow</code>, <code>-webkit-appearance</code>, <code>-moz-appearance</code>, <code>appearance</code>, <code>background-image</code>, <code>background-repeat</code> e <code>background-position</code>. O seletor <code>select</code> é usado para aplicar esses estilos a todas as listas suspensas HTML em uma página. As propriedades <code>-webkit-appearance</code>, <code>-moz-appearance</code> e <code>appearance</code> são usadas para remover a aparência padrão.</p><p id="029a8a7c-0d95-456b-9b8d-605ff7d66eee" class="">
+</p><ul id="e6fe3f66-6a02-47d2-b5c5-81c867640cde" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Pseudoclasses e pseudoelementos</strong></span><div class="indented"></div></li></ul><p id="ded46f91-b49a-4857-a3fe-209de2b3bed5" class="">As pseudoclasses e pseudoelementos são recursos avançados de estilização no CSS que permitem selecionar elementos com base em seu estado ou posição em relação a outros elementos. Elas são indicadas por dois pontos <code>:</code> ou dois colons <code>::</code> antes do nome da classe ou elemento.</p><p id="9a8eb75a-06df-4ec7-ba51-2b56128ac9d7" class="">As pseudoclasses são uma forma de selecionar um elemento com base em seu estado ou interação. Algumas das pseudoclasses mais comuns incluem:</p><ul id="11e62486-4413-4612-82c6-62fa4941f6e9" class="bulleted-list"><li style="list-style-type:disc"><code>:hover</code>: seleciona um elemento quando o mouse passa por cima dele.</li></ul><ul id="898d4b93-2052-4029-895b-a3269251d7e0" class="bulleted-list"><li style="list-style-type:disc"><code>:active</code>: seleciona um elemento quando ele é clicado.</li></ul><ul id="111bdd2c-3ae4-4fc3-94ff-b72d9f51fe51" class="bulleted-list"><li style="list-style-type:disc"><code>:focus</code>: seleciona um elemento quando ele recebe o foco do usuário.</li></ul><ul id="a496282e-b8f2-4fcb-aeb8-dfde048385ab" class="bulleted-list"><li style="list-style-type:disc"><code>:checked</code>: seleciona um elemento quando ele é selecionado (como um checkbox ou radio button).</li></ul><ul id="e5e52d01-4954-4918-8fdd-4911e5d2dcfe" class="bulleted-list"><li style="list-style-type:disc"><code>:nth-child(n)</code>: seleciona um elemento com base em sua posição em relação a seus irmãos (por exemplo, o terceiro elemento filho).</li></ul><ul id="c7619eb0-6010-4ac4-a3e3-21a786f03f86" class="bulleted-list"><li style="list-style-type:disc"><code>:not(selector)</code>: seleciona um elemento que não corresponde a um seletor especificado.</li></ul><p id="749640b4-b811-4e3d-ba03-85701300049c" class="">Aqui está um exemplo de código que usa a pseudoclasse <code>:hover</code> para mudar a cor do texto quando o mouse passa por cima do elemento:</p><pre id="a3f966a7-11dc-4ba9-a7cd-ba2b6164a343" class="code code-wrap"><code>button:hover {
+  color: red;
+}
+</code></pre><p id="18a37a29-2b5a-4265-b86d-6ccc14ffb6f8" class="">Neste exemplo, definimos uma regra de estilo para um botão que usa a pseudoclasse <code>:hover</code>. Quando o mouse passa por cima do botão, a cor do texto é alterada para vermelho.</p><p id="29dcf140-85bd-44b2-8562-a97e6a77c5af" class="">Os pseudoelementos são uma forma de selecionar uma parte específica de um elemento e estilizá-la separadamente do restante do elemento. Alguns dos pseudoelementos mais comuns incluem:</p><ul id="108ecd34-cf3c-4f38-b740-9d3f319068f1" class="bulleted-list"><li style="list-style-type:disc"><code>::before</code>: adiciona conteúdo antes do elemento selecionado.</li></ul><ul id="24397e44-83c2-4e93-a7dc-d0af374a9bcc" class="bulleted-list"><li style="list-style-type:disc"><code>::after</code>: adiciona conteúdo depois do elemento selecionado.</li></ul><ul id="07963cec-2516-4c97-8f55-e387e163d34e" class="bulleted-list"><li style="list-style-type:disc"><code>::first-letter</code>: seleciona a primeira letra do elemento selecionado.</li></ul><ul id="a73526be-f403-47af-b976-82893eeafb33" class="bulleted-list"><li style="list-style-type:disc"><code>::first-line</code>: seleciona a primeira linha do elemento selecionado.</li></ul><ul id="4d8332c6-7f57-4daf-ad57-00c4a1f7578c" class="bulleted-list"><li style="list-style-type:disc"><code>::selection</code>: seleciona o texto selecionado pelo usuário.</li></ul><p id="5a6d4ea3-dbeb-478f-8229-d3673fdf0c04" class="">Aqui está um exemplo de código que usa o pseudoelemento <code>::before</code> para adicionar um ícone antes de um link:</p><pre id="f1b59460-30e5-41d6-9a9e-a739815e139a" class="code code-wrap"><code>a::before {
+  content: &quot;\\f015&quot;;
+  font-family: FontAwesome;
+  margin-right: 5px;
+}
+</code></pre><p id="72ccfec3-21df-412c-8389-d2ff0a5b5704" class="">Neste exemplo, definimos uma regra de estilo para um link que usa o pseudoelemento <code>::before</code>. O conteúdo do pseudoelemento é definido como o ícone &quot;fa-search&quot; da biblioteca FontAwesome. O ícone é adicionado antes do link usando o <code>content</code> CSS. A propriedade <code>font-family</code> define a fonte do ícone e a propriedade <code>margin-right</code> adiciona um espaço entre o ícone e o texto do link.</p><p id="1688b011-cd2b-455d-9cb6-4fb64df82192" class="">As pseudoclasses e pseudoelementos são recursos avançados do CSS que permitem criar estilos mais complexos e interativos em elementos HTML. A documentação oficial do CSS tem mais informações sobre como usar as pseudoclasses e pseudoelementos em seus projetos.</p><h3 id="4" class="">Etapa 4: Frameworks e Prática</h3><p id="15efb0d8-4ac0-4c73-b03f-0bd3efe33d4e" class="">Nesta etapa, você vai explorar frameworks CSS populares e aplicar seus conhecimentos em projetos práticos.</p><p id="f5f2ebec-a1b7-43d7-866e-a1292610960e" class="">
+</p><ul id="d8d894dd-2d53-4f22-a86f-25108b73879a" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Bootstrap</strong></span><div class="indented"></div></li></ul><p id="3687e973-5747-4f98-8af0-0fd88a7393a9" class="">O Bootstrap é um framework de design e desenvolvimento web que inclui uma série de componentes predefinidos, como botões, formulários, tabelas e muito mais. Ele foi criado para ajudar os desenvolvedores a criar rapidamente sites responsivos e com aparência profissional, sem a necessidade de escrever muito código personalizado de CSS ou JavaScript.</p><p id="49455460-75b1-41a4-a13e-080a21978916" class="">O Bootstrap pode ser usado como uma ferramenta de estilização para acelerar o processo de desenvolvimento web. Ele inclui uma série de classes de estilo predefinidas que podem ser aplicadas a elementos HTML para alterar sua aparência. Por exemplo, a classe <code>.btn</code> pode ser usada para criar botões com aparência consistente em todo o site. Da mesma forma, a classe <code>.form-control</code> pode ser usada para estilizar campos de formulário, e a classe <code>.table</code> pode ser usada para estilizar tabelas.</p><p id="519358e4-3f85-49a5-875a-94a99d7263cf" class="">Além disso, o Bootstrap inclui um sistema de grade flexível que permite organizar o conteúdo em uma grade responsiva. O sistema de grade é baseado em classes que definem o número de colunas para cada elemento em diferentes tamanhos de tela. Por exemplo, a classe <code>.col-md-6</code> define que um elemento deve ocupar seis colunas em dispositivos médios.</p><p id="54290855-00ce-49eb-ad76-fb1031327b57" class="">Em resumo, o Bootstrap pode ser usado para criar rapidamente sites com aparência profissional e responsiva, sem a necessidade de escrever muito código personalizado de CSS ou JavaScript. Ele é uma ferramenta poderosa para acelerar o processo de desenvolvimento web e pode ser facilmente personalizado para atender às necessidades de um projeto específico.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e55b86d7-f710-4cc7-a67f-6a5d3c9d5954"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Acesse a documentação oficial em <strong>links úteis</strong> na seção <strong>recursos e materiais</strong></div></figure><p id="6394cb41-fced-4a6b-a3a7-c2c558cb0211" class="">
+</p><ul id="b6175484-a41c-4da7-96ac-80fe3bc568e8" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Tailwind</strong> <strong>CSS</strong></span><div class="indented"></div></li></ul><p id="2411b1a1-cf7b-4a12-a9b0-32491f56256b" class="">O Tailwind CSS é uma biblioteca de classes de CSS pré-construídas que podem ser usadas para estilizar rapidamente elementos HTML. Ele oferece uma série de classes para propriedades comuns, como cores, tipografia, espaçamento e muito mais. Ao usar o Tailwind CSS, você pode criar estilos personalizados de forma mais rápida e eficiente, sem precisar escrever CSS personalizado do zero. O Tailwind CSS também é altamente personalizável, permitindo que você adicione ou remova classes para atender às suas necessidades específicas de estilização.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="81cf5afe-9ff9-44bc-9bde-43840d79d6be"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Acesse a documentação oficial em <strong>links úteis</strong> na seção <strong>recursos materiais</strong></div></figure><p id="2179dcc9-dec9-4e22-b2b8-9b1be9fbebbf" class="">
+</p><ul id="abcf4fd8-ec86-4a9e-9fef-e5d51faf0554" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Desenvolvimento de uma página web responsiva</strong></span><div class="indented"></div></li></ul><ul id="9df3bde1-7d6d-4dc6-ad6d-5dd26134e915" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked"><strong>Refatoração de um projeto existente com técnicas avançadas de CSS</strong></span><div class="indented"></div></li></ul><h2 id="5" class="">📚🆓 Recursos e Materiais</h2><p id="de0f4774-76b0-447f-8f97-246bfca52fc3" class="">Aqui estão listados alguns recursos e materiais de estudo que podem ser utilizados ao longo do processo.</p><ul id="2428d3f6-d01e-4923-baa9-b5815cb53eaf" class="toggle"><li><details open=""><summary><strong>Links úteis: </strong></summary><ul id="22d6fa56-0f63-411e-ae21-a17b05637375" class="bulleted-list"><li style="list-style-type:disc"><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS">https://developer.mozilla.org/pt-BR/docs/Web/CSS</a></li></ul><ul id="e5964b45-93b5-4a13-b999-7ff93a314c27" class="bulleted-list"><li style="list-style-type:disc"><a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Documentação oficial do Bootstrap</a></li></ul><ul id="9a4cccff-9164-4e9a-a4ab-5ef2c8203a25" class="bulleted-list"><li style="list-style-type:disc"><a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a>.</li></ul><p id="7604eee2-c286-43a5-88e1-450e244d2847" class="">
+</p></details></li></ul><ul id="7785209e-b1e9-4294-adac-9c88d6fa0e94" class="toggle"><li><details open=""><summary><strong>Livros:</strong> </summary><ul id="c17eb258-887f-4af3-9ed9-a510e43b1ac2" class="bulleted-list"><li style="list-style-type:disc">CSS Secrets: Better Solutions to Everyday Web Design Problems&quot; - Lea Verou</li></ul></details></li></ul><ul id="2ddd3764-e014-4b72-aacd-d9f69a01abc0" class="toggle"><li><details open=""><summary><strong>Cursos online: </strong></summary><ul id="afbe8845-3f97-44e6-b92e-b4677ec6029b" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://youtube.com/playlist?list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n">Curso em Vídeo - Curso completo e atual de HTML5/CSS3 - Módulo 1 de 5</a></strong><strong> </strong></li></ul></details></li></ul><h2 id="6" class="">📆 Calendário</h2><p id="3febf53a-08d8-4fb7-8ff5-8c9d8223d889" class="">Nesta seção, você pode criar um calendário para planejar as datas de estudo e definir metas específicas para cada tarefa.</p><ul id="44ce0b43-85a2-44c9-b31d-427501e29294" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked">Definir datas para as Etapas 1-3</span><div class="indented"></div></li></ul><ul id="d6ce3abd-0686-4fcb-901e-c5a95e8c9341" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked">Estabelecer prazos para projetos e desafios</span><div class="indented"></div></li></ul><h2 id="7" class="">📊 Progresso</h2><p id="99cabbee-932e-4adc-bfc9-24ccc539cfe4" class="">Use esta seção para rastrear seu progresso conforme avança em seu roadmap de estudos.</p><ul id="0d8f2e2c-ea8c-45a4-9fcf-95ed9f99b473" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"> <span class="to-do-children-unchecked">Marcar as tarefas concluídas</span><div class="indented"></div></li></ul><ul id="199d4001-069e-4ea4-98d2-78399800f790" class="to-do-list"><li><input type="checkbox" class="checkbox checkbox-off"/> <span class="to-do-children-unchecked">Registrar notas importantes e pontos de dificuldade</span><div class="indented"></div></li></ul><h2 id="8" class="">💡 Notas e Observações</h2><p id="505ed52a-e619-4c17-97df-788a238f996d" class="">Aqui você pode adicionar quaisquer notas, observações ou insights que surgirem ao longo do seu processo de estudo.</p></div></article></body></html>
